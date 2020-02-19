@@ -1,6 +1,6 @@
 from django.urls import path, include
-from . import views
+from .views import FuncionarioList
 
 urlpatterns = [
-    path('', views.home)
+    path('', FuncionarioList.as_view() , name="list_funcionarios")
 ]

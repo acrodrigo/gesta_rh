@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from .models import Funcionario
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
 
 class FuncionarioList(ListView):
     model = Funcionario
@@ -8,3 +8,8 @@ class FuncionarioList(ListView):
     def get_queryset(self):
         empresa_logada = self.request.user.funcionario.empresa
         return Funcionario.objects.filter(empresa=empresa_logada)
+
+
+class FuncionarioEdit(UpdateView):
+    model = Funcionario
+    fields = ['nome', 'departamentos']

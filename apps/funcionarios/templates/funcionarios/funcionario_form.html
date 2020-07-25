@@ -5,6 +5,12 @@
     <form method="post">
         {% csrf_token %}
         {{ form|bootstrap }}
-        <button type="submit">Salvar</button>
+        <button type="submit" class="btn btn-info">Salvar</button>
     </form>
+
+    <a href="{% url 'create_documento' object.id %}" class="btn btn-info mt-1">Adicionar documento</a>
+
+{% for documento in object.documento_set.all %}
+    <a href="{{ documento.arquivo.url }}">{{documento}}</a><br>
+{% endfor  %}
 {% endblock %}

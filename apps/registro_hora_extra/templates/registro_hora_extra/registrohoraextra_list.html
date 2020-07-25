@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% block main %}
     {% for hora_extra in object_list %}
-        {{hora_extra}}<a href="{% url 'update_hora_extra' hora_extra.id %}">Editar</a><br>
+        {{hora_extra}}
+        <a href="{% url 'update_hora_extra' hora_extra.id %}" style="margin-right: 10px">Editar</a>
+        <a href="{% url 'delete_hora_extra' hora_extra.id %}" style="margin-right: 10px">Delete</a><br>
     {% endfor %}
+
+    {% if not object_list %}
+        <h3>Não existe registro de horas extras.</h3>
+    {% endif %}
+
 {% endblock %}

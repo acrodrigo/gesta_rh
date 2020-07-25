@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}
     {% for hora_extra in object_list %}
-        <a href="">{{hora_extra}}</a><br>
+        {{hora_extra}}<a href="{% url 'update_hora_extra' hora_extra.id %}">Editar</a><br>
     {% endfor %}
 {% endblock %}

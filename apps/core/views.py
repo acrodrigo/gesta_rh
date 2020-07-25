@@ -7,4 +7,4 @@ def home(request):
     data = {}
     data['usuario'] = request.user
     print("O que eh ", request.user)
-    return render(request, 'index.html', data)
+    return render(request, 'core/index.html', data)

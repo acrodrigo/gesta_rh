@@ -10,7 +10,18 @@
 
     <a href="{% url 'create_documento' object.id %}" class="btn btn-info mt-1">Adicionar documento</a>
 
+<h2 class="mt-4">Documentos</h2>
+<ul>
 {% for documento in object.documento_set.all %}
-    <a href="{{ documento.arquivo.url }}">{{documento}}</a><br>
+    <li><a href="{{ documento.arquivo.url }}">{{documento}}</a></li><br>
 {% endfor  %}
+</ul>
+
+<h2>Hora Extras</h2>
+<ul>
+{% for registro_hora in object.registrohoraextra_set.all %}
+    <li>{{ registro_hora.motivo }} | {{ registro_hora.horas}}</li><br>
+{% endfor  %}
+</ul>
+
 {% endblock %}
